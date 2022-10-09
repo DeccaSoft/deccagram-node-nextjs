@@ -1,9 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { loadGetInitialProps } from "next/dist/shared/lib/utils";
+import {conectarMongoDB} from '../../middlewares/conectarMongoDB';
+import type {RespostaPadraoMsg} from '../../types/RespostaPadraoMsg';
 
-export default (
+const endpointLogin = (
     req: NextApiRequest,
-    res: NextApiResponse
+    res: NextApiResponse<RespostaPadraoMsg>
 ) => {
     if(req.method === 'POST'){
         const {login, senha} = req.body;
@@ -14,3 +15,5 @@ export default (
     }
     return res.status(405).json({erro: 'O Método Informado NÃO é Válido!'});
 }
+
+export default conectarMongoDB(endpointLogin);
