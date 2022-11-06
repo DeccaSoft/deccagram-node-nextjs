@@ -5,7 +5,7 @@ import { validarTokenJwt } from './../../middlewares/validarTokenJwt';
 import type {NextApiRequest, NextApiResponse} from 'next';
 import type {RespostaPadraoMsg} from '../../types/RespostaPadraoMsg';
 
-const likeEndpoint =async (req:NextApiRequest, res:NextApiResponse<RespostaPadraoMsg>) => {
+const likeEndpoint = async (req:NextApiRequest, res:NextApiResponse<RespostaPadraoMsg>) => {
     try {
         //Id da Publicação
         if(req.method === 'PUT'){
