@@ -1,8 +1,8 @@
 import { UsuarioModel } from './../../models/UsuarioModel';
 import { conectarMongoDB } from './../../middlewares/conectarMongoDB';
 import { validarTokenJwt } from './../../middlewares/validarTokenJwt';
-import { RespostaPadraoMsg } from './../../types/RespostaPadraoMsg';
-import {NextApiRequest, NextApiResponse} from 'next';
+import type { RespostaPadraoMsg } from './../../types/RespostaPadraoMsg';
+import type {NextApiRequest, NextApiResponse} from 'next';
 import { PublicacaoModel } from '../../models/PublicacaoModel';
 
 const comentarioEndpoint = async (req:NextApiRequest, res:NextApiResponse<RespostaPadraoMsg>) => {

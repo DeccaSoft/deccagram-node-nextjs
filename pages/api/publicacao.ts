@@ -20,7 +20,7 @@ const handler = nc()
                 return res.status(400).json({erro: 'Parâmetros de Entrada não Informados!'});
             }
             const {descricao} = req?.body;
-            if(!descricao){
+            if(!descricao || descricao.length < 1){
                 return res.status(400).json({erro: 'Descrição Inexistente!'});
             }
             if(!req.file || !req.file.originalname){
