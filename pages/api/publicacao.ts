@@ -6,6 +6,7 @@ import {conectarMongoDB} from '../../middlewares/conectarMongoDB';
 import {validarTokenJwt} from '../../middlewares/validarTokenJwt';
 import {PublicacaoModel} from '../../models/PublicacaoModel';
 import {UsuarioModel} from '../../models/UsuarioModel';
+import { politicaCORS } from '../../middlewares/politicaCORS';
 
 const handler = nc()
     .use(upload.single('file'))
@@ -53,4 +54,4 @@ export const config = {
 }
 
 //Atenção na cadeia: ValidaToken->ConectaBanco e só depois entra na api
-export default validarTokenJwt(conectarMongoDB(handler));
+export default politicaCORS(validarTokenJwt(conectarMongoDB(handler)));
